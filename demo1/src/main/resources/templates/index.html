@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Demo1  index.html</h1>
+<div id="msg"></div>
+<script src="/js/jquery-3.3.1.min.js"></script>
+</body>
+<script>
+    $.get('/getName', function (result) {
+        console.log(result);
+        var el=document.getElementById('msg');
+        el.innerText='欢迎你:' + result.data.uName;
+    });
+</script>
+</html>

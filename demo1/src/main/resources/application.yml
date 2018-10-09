@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/test?useSSL=false
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
+    mode: HTML
+    encoding: UTF-8
+    cache: false
