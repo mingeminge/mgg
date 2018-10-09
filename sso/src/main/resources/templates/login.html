@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align: center">
+    <form id="loginForm">
+        <input type="text" name="userName">
+        <br>
+        <input type="password" name="password">
+        <br>
+        <input type="submit" value="提交">
+        <br>
+        <input type="hidden" value="" id="redirect" name="redirect">
+    </form>
+</div>
+</body>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script>
+    var redirect = location.href.split('=')[1];
+    var action = document.getElementById('redirect');
+    action.value = redirect;
+    $('#loginForm').on('submit', function () {
+        var param = $('#loginForm').serialize();
+        $.post('/sso/login', param, function (result) {
+            if (result.success) {
+                location.href = redirect;
+            } else {
+                alert(result.msg);
+            }
+        });
+        return false;
+    });
+
+</script>
+</html>

@@ -1,0 +1,20 @@
+server:
+  port: 8086
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/user?useSSL=false
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+  redis:
+    port: 6379
+    host: 192.168.80.135
+    password: 123456
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
